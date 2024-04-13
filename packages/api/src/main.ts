@@ -8,16 +8,17 @@ async function bootstrap() {
     cors: true,
   });
 
+  app.setGlobalPrefix('/api');
+
   const config = new DocumentBuilder()
     .setTitle('360 API')
     .setDescription('The 360 API description')
     .setVersion('1.0')
     .addTag('360 BACKEND')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/docs', app, document);
-
-  app.setGlobalPrefix('/api');
 
   await app.listen(3001);
 
