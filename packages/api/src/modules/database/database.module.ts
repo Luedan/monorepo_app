@@ -6,10 +6,10 @@ import { entities } from '../../libs/entities';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'ls-e7585ad1aaa52368ffc7adbd54cec344492ad9bd.czfp48fvire1.us-east-1.rds.amazonaws.com',
+      host: '',
       port: 3306,
-      username: 'dbmasteruser',
-      password: 'xup4l0m4dur0',
+      username: '',
+      password: '',
       database: '360_dev',
       entities: [...entities],
       logging: true,
