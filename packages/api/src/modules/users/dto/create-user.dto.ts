@@ -18,10 +18,16 @@ export class CreateUserDto {
   email: string;
 
   @IsString()
+  password: string;
+
+  @IsString()
   documentNumber: string;
 
   @IsString()
   documentType: string;
+
+  @IsNumber()
+  type: number;
 
   @IsDate()
   createdAt: Date;

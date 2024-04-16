@@ -13,7 +13,7 @@ import { User } from './entities/user.entity';
 import { BaseRepository } from '@app/common/classes/baseRepository';
 
 @Injectable({ scope: Scope.REQUEST })
-export class UsersRepository extends BaseRepository {
+export class UserRepository extends BaseRepository {
   /**
    * User repository
    */

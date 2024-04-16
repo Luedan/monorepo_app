@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UsersRepository } from './user.repository';
+import { UserRepository } from './user.repository';
 import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly _userRepository: UsersRepository) {}
+  constructor(private readonly _userRepository: UserRepository) {}
 
   /**
    * Create a new user

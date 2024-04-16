@@ -30,6 +30,12 @@ export class User {
   email: string;
 
   /**
+   * Password
+   */
+  @Column()
+  password: string;
+
+  /**
    * Document number
    */
   @Column()
@@ -40,6 +46,9 @@ export class User {
    */
   @Column()
   documentType: string;
+
+  @Column()
+  type: number;
 
   /**
    * Create date
