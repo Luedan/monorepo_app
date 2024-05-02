@@ -18,12 +18,6 @@ export class User {
   id?: number;
 
   /**
-   * Mili user id
-   */
-  @Column()
-  miliUid: string;
-
-  /**
    * Email
    */
   @Column()
@@ -36,17 +30,8 @@ export class User {
   password: string;
 
   /**
-   * Document number
+   * User type
    */
-  @Column()
-  documentNumber: string;
-
-  /**
-   * Document type
-   */
-  @Column()
-  documentType: string;
-
   @Column()
   type: number;
 

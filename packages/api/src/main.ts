@@ -14,10 +14,10 @@ async function bootstrap() {
   app.setGlobalPrefix('/api');
 
   const config = new DocumentBuilder()
-    .setTitle('360 API')
-    .setDescription('The 360 API description')
+    .setTitle('THE MONOREPO API')
+    .setDescription('THE MONOREPO API DESCRIPTION')
     .setVersion('1.0')
-    .addTag('360 BACKEND')
+    .addTag('THE MONOREPO BACKEND')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
