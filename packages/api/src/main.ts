@@ -17,7 +17,6 @@ async function bootstrap() {
     .setTitle('THE MONOREPO API')
     .setDescription('THE MONOREPO API DESCRIPTION')
     .setVersion('1.0')
-    .addTag('THE MONOREPO BACKEND')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UserRepository } from './user.repository';
+import { UserRepository } from '../users/users.repository';
 import { User } from './entities/user.entity';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -14,7 +15,13 @@ export class UsersService {
    * @returns
    */
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const user = await this._userRepository.createUser(createUserDto);
+    const passwordCrypt = bcrypt.hashSync(createUserDto.password, 10);
+
+    const user = await this._userRepository.createUser({
+      ...createUserDto,
+      password: passwordCrypt,
+    });
+
     return user;
   }
 
@@ -23,7 +30,9 @@ export class UsersService {
    * @returns
    */
   async findAll(): Promise<User[]> {
-    const users = await this._userRepository.getAllUsers();
+    const users = await this._userRepository.getAllUsers({
+      relations: { role: true },
+    });
     return users;
   }
 
@@ -33,7 +42,9 @@ export class UsersService {
    * @returns
    */
   async findOne(id: number): Promise<User> {
-    const user = await this._userRepository.findUserById({ where: { id } });
+    const user = await this._userRepository.findUserById({
+      where: { idUser: id },
+    });
     return user;
   }
 
@@ -54,7 +65,7 @@ export class UsersService {
    * @returns
    */
   async remove(id: number): Promise<User> {
-    const data = await this._userRepository.deleteUser({ id });
+    const data = await this._userRepository.deleteUser({ idUser: id });
     return data;
   }
 }

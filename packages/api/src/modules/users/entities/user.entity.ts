@@ -1,55 +1,46 @@
-import {
-  Column,
-  CreateDateColumn,
-  DeleteDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Role } from '@app/modules/roles/entities/role.entity';
 
-@Entity({
-  name: 'users',
-})
 export class User {
   /**
    * User id
    */
-  @PrimaryGeneratedColumn()
-  id?: number;
+  idUser?: number;
 
   /**
    * Email
    */
-  @Column()
   email: string;
 
   /**
    * Password
    */
-  @Column()
   password: string;
 
   /**
    * User type
    */
-  @Column()
   type: number;
+
+  /**
+   * Role id
+   */
+  idRole: number;
 
   /**
    * Create date
    */
-  @CreateDateColumn()
-  createdAt: Date;
+  createdAt?: Date;
 
   /**
    * Update date
    */
-  @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt?: Date;
 
   /**
    * Delete date
    */
-  @DeleteDateColumn()
-  deletedAt: Date;
+  deletedAt?: Date;
+
+  /** Relations */
+  role?: Role;
 }

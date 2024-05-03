@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { SecurityService } from './security.service';
 import { SecurityController } from './security.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { UserRepository } from '../users/user.repository';
+import { UserRepository } from '../users/users.repository';
 
 @Module({
   imports: [

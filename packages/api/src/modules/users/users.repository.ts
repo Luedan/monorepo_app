@@ -9,8 +9,9 @@ import {
   Repository,
   SaveOptions,
 } from 'typeorm';
-import { User } from './entities/user.entity';
+import { User } from '../users/entities/user.entity';
 import { BaseRepository } from '@app/common/classes/baseRepository';
+import { userModel } from './entities/user.model';
 
 @Injectable({ scope: Scope.REQUEST })
 export class UserRepository extends BaseRepository {
@@ -27,7 +28,7 @@ export class UserRepository extends BaseRepository {
   constructor(dataSource: DataSource, @Inject(REQUEST) req: Request) {
     super(dataSource, req);
 
-    this._userRepository = this.getRepository(User);
+    this._userRepository = this.getRepository(userModel);
   }
 
   /**
